@@ -18,15 +18,23 @@ function! s:eskk_initial_pre()
 
 " q-key
   EskkUnmap -type=mode:hira:toggle-kata q
+  EskkUnmap -type=mode:hira:q-key q
   EskkUnmap -type=mode:kata:toggle-kata q
+  EskkUnmap -type=mode:kata:q-key q
   EskkMap -type=mode:hira:toggle-kata -unique @
+  EskkMap -type=mode:hira:q-key -unique @
   EskkMap -type=mode:kata:toggle-kata -unique @
+  EskkMap -type=mode:kata:q-key -unique @
 
 " l-key
   EskkUnmap -type=mode:hira:to-ascii l
+  EskkUnmap -type=mode:hira:l-key l
   EskkUnmap -type=mode:kata:to-ascii l
+  EskkUnmap -type=mode:kata:l-key l
   EskkMap -type=mode:hira:to-ascii -unique ^
+  EskkMap -type=mode:hira:l-key -unique ^
   EskkMap -type=mode:kata:to-ascii -unique ^
+  EskkMap -type=mode:kata:l-key -unique ^
 
   "{{{ rom_to_hira
   let t = eskk#table#new('rom_to_hira*', 'rom_to_hira')
