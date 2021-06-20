@@ -1,3 +1,15 @@
+" eskk + lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'eskkstatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'eskkstatus': 'eskk#statusline'
+      \ },
+      \ }
+
 " eskk
 set imdisable
 let g:eskk#directory = "~/vimfiles/eskk"
