@@ -19,6 +19,10 @@ let g:eskk#enable_completion = 0
 let g:eskk#kakutei_when_unique_candidate = 0
 let g:eskk#keep_state = 1
 let g:eskk#egg_like_newline = 1
+let g:eskk#server = {
+\   'host': 'localhost',
+\   'port': 55100,
+\}
 
 autocmd VimEnter * imap <C-j> <Plug>(eskk:toggle)
 autocmd VimEnter * cmap <C-j> <Plug>(eskk:toggle)
@@ -26,7 +30,8 @@ autocmd VimEnter * cmap <C-j> <Plug>(eskk:toggle)
 autocmd User eskk-initialize-pre call s:eskk_initial_pre()
 function! s:eskk_initial_pre()
   EskkUnmap -type=sticky ;
-  EskkMap -type=sticky Q
+  EskkMap -type=sticky :
+  "EskkMap -type=sticky Q
 
 " q-key
   EskkUnmap -type=mode:hira:toggle-kata q
@@ -55,7 +60,7 @@ function! s:eskk_initial_pre()
   call t.add_map('.', '。')
   call t.add_map(',', '、')
   call t.add_map('/', '・')
-  call t.add_map(':', 'ー')
+  "call t.add_map(':', 'ー')
   call t.add_map(';', 'っ')
   call t.add_map('[', '「')
   call t.add_map(']', '」')
@@ -584,9 +589,8 @@ function! s:eskk_initial_pre()
   call t.add_map('.', '。')
   call t.add_map(',', '、')
   call t.add_map('/', '・')
-  call t.add_map(':', 'ー')
+  "call t.add_map(':', 'ー')
   call t.add_map(';', 'ッ')
-  call t.add_map('tm', 'ッ')
   call t.add_map('[', '「')
   call t.add_map(']', '」')
   call t.add_map('a', 'ア')
